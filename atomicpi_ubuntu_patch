@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# This patch tweaks ubuntu 18.04/19.04 to perform better for atomic pi SBC
+# Detailed information please refer to reddit /r/Atomic_Pi/Wiki/ubuntu
+
+# Performance Improve
+cp 200-atomicpi_performance_mods.conf /etc/sysctl.d/200-atomicpi_performance_mods.conf
+
+# Do not load HSUART DMA module which prevents normal shutdown/reboot
+mv /etc/modprobe.d/blacklist.conf /etc/modprobe.d/blacklist.conf.bak
+cp blacklist.conf /etc/modprobe.d/blacklist.conf
