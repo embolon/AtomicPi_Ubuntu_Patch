@@ -9,3 +9,7 @@ cp 200-atomicpi_performance_mods.conf /etc/sysctl.d/200-atomicpi_performance_mod
 # Do not load HSUART DMA module which prevents normal shutdown/reboot
 mv /etc/modprobe.d/blacklist.conf /etc/modprobe.d/blacklist.conf.bak
 cp blacklist_1910.conf /etc/modprobe.d/blacklist.conf
+
+# Manually kill modprobe dw_dmac
+modprobe -r dw_dmac
+modprobe -r dw_dmac_core
